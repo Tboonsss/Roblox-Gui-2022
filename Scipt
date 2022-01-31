@@ -201,7 +201,7 @@ Admin.Text = "Funny"
 Admin.TextColor3 = Color3.fromRGB(0, 183, 235)
 Admin.TextSize = 20.000
 Admin.MouseButton1Down:connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Tboonsss/f/main/sd?token=GHSAT0AAAAAABRCFBYMFTBU5QRAMP4LMXJ6YPYIUPA",true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Tboonsss/f/main/sd",true))()
 end)
  
 Noclip.Name = "AudioVizualizer"
