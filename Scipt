@@ -1,0 +1,285 @@
+local adwa = Instance.new("ScreenGui")
+local lolwe = Instance.new("Frame")
+local ewqre = Instance.new("Frame")
+local Fly = Instance.new("TextButton")
+local Animations = Instance.new("TextButton")
+local pee = Instance.new("TextButton")
+local onus = Instance.new("TextButton")
+local Fling = Instance.new("TextButton")
+local Admin = Instance.new("TextButton")
+local Noclip = Instance.new("TextButton")
+local Bypass = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local LABEL = Instance.new("TextLabel")
+
+ 
+ 
+--Properties:
+ 
+adwa.Name = "adwa"
+adwa.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+adwa.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ 
+lolwe.Name = "lolwe"
+lolwe.Parent = adwa
+lolwe.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+lolwe.BorderSizePixel = 0
+lolwe.Position = UDim2.new(0.0529355146, 0, 0.308764935, 0)
+lolwe.Size = UDim2.new(0,  600, 0, 360)
+lolwe.Draggable = true
+lolwe.Active = true
+ 
+ewqre.Name = "ewqre"
+ewqre.Parent = lolwe
+ewqre.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ewqre.BorderSizePixel = 0
+ewqre.Size = UDim2.new(0, 600, 0, 40)
+ 
+Fly.Name = "FeFlip"
+Fly.Parent = lolwe
+Fly.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Fly.BorderSizePixel = 0
+Fly.Position = UDim2.new(0.152112678, 0, 0.234741777, 0)
+Fly.Size = UDim2.new(0, 150, 0, 31)
+Fly.Font = Enum.Font.Cartoon
+Fly.Text = "FeFlip"
+Fly.TextColor3 = Color3.fromRGB(0, 183, 235)
+Fly.TextSize = 20.000
+Fly.MouseButton1Down:connect(function()
+
+wait(5)
+
+--[[ Info ]]--
+
+local ver = "2.00"
+local scriptname = "feFlip"
+
+
+--[[ Keybinds ]]--
+
+local FrontflipKey = Enum.KeyCode.Z
+local BackflipKey = Enum.KeyCode.X
+local AirjumpKey = Enum.KeyCode.C
+
+
+--[[ Dependencies ]]--
+
+local ca = game:GetService("ContextActionService")
+local zeezy = game:GetService("Players").LocalPlayer
+local h = 0.0174533
+local antigrav
+
+
+--[[ Functions ]]--
+
+function zeezyFrontflip(act,inp,obj)
+	if inp == Enum.UserInputState.Begin then
+		zeezy.Character.Humanoid:ChangeState("Jumping")
+		wait()
+		zeezy.Character.Humanoid.Sit = true
+		for i = 1,360 do 
+			delay(i/720,function()
+			zeezy.Character.Humanoid.Sit = true
+				zeezy.Character.HumanoidRootPart.CFrame = zeezy.Character.HumanoidRootPart.CFrame * CFrame.Angles(-h,0,0)
+			end)
+		end
+		wait(0.55)
+		zeezy.Character.Humanoid.Sit = false
+	end
+end
+
+function zeezyBackflip(act,inp,obj)
+	if inp == Enum.UserInputState.Begin then
+		zeezy.Character.Humanoid:ChangeState("Jumping")
+		wait()
+		zeezy.Character.Humanoid.Sit = true
+		for i = 1,360 do
+			delay(i/720,function()
+			zeezy.Character.Humanoid.Sit = true
+				zeezy.Character.HumanoidRootPart.CFrame = zeezy.Character.HumanoidRootPart.CFrame * CFrame.Angles(h,0,0)
+			end)
+		end
+		wait(0.55)
+		zeezy.Character.Humanoid.Sit = false
+	end
+end
+
+function zeezyAirjump(act,inp,obj)
+	if inp == Enum.UserInputState.Begin then
+		zeezy.Character:FindFirstChildOfClass'Humanoid':ChangeState("Seated")
+		wait()
+		zeezy.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")	
+	end
+end
+
+
+--[[ Binds ]]--
+
+ca:BindAction("zeezyFrontflip",zeezyFrontflip,false,FrontflipKey)
+ca:BindAction("zeezyBackflip",zeezyBackflip,false,BackflipKey)
+ca:BindAction("zeezyAirjump",zeezyAirjump,false,AirjumpKey)
+
+--[[ Load Message ]]--
+
+print(scriptname .. " " .. ver .. " loaded successfully")
+print("FLIP")
+
+local notifSound = Instance.new("Sound",workspace)
+notifSound.PlaybackSpeed = 1.5
+notifSound.Volume = 0.15
+notifSound.SoundId = "rbxassetid://170765130"
+notifSound.PlayOnRemove = true
+notifSound:Destroy()
+game.StarterGui:SetCore("SendNotification", {Title = "FeFlip", Text = "feFlip loaded successfully!", Icon = "rbxassetid://505845268", Duration = 5, Button1 = "Okay"})
+end)
+ pee.Name = "Rejoin"
+pee.Parent = lolwe
+pee.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+pee.BorderSizePixel = 0
+pee.Position = UDim2.new(0.78309859, 0, 0.234741777, 0)
+pee.Size = UDim2.new(0, 39, 0, 31)
+pee.Font = Enum.Font.Cartoon
+pee.Text = "Rejoin"
+pee.TextColor3 = Color3.fromRGB(0, 183, 235)
+pee.TextSize = 15.000
+pee.MouseButton1Down:connect(function()
+
+    local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local Rejoin = coroutine.create(function()
+    local Success, ErrorMessage = pcall(function()
+        TeleportService:Teleport(game.PlaceId, LocalPlayer)
+    end)
+
+    if ErrorMessage and not Success then
+        warn(ErrorMessage)
+    end
+end)
+
+coroutine.resume(Rejoin)
+
+end)
+ 
+Fling.Name = "FeEmotes"
+Fling.Parent = lolwe
+Fling.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Fling.BorderSizePixel = 0
+Fling.Position = UDim2.new(0.152112663, 0, 0.455399036, 0)
+Fling.Size = UDim2.new(0, 150, 0, 31)
+Fling.Font = Enum.Font.Cartoon
+Fling.Text = "FeEmotes"
+Fling.TextColor3 = Color3.fromRGB(0, 183, 235)
+Fling.TextSize = 20.000
+Fling.MouseButton1Down:connect(function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/gSkdQpxn", true))()
+end)
+
+onus.Name = "AudioLogger"
+onus.Parent = lolwe
+onus.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+onus.BorderSizePixel = 0
+onus.Position = UDim2.new(0.78309859, 0, 0.455399036, 0)
+onus.Size = UDim2.new(0, 73, 0, 31)
+onus.Font = Enum.Font.Cartoon
+onus.Text = "AudioLogger"
+onus.TextColor3 = Color3.fromRGB(0, 183, 235)
+onus.TextSize = 14.000
+onus.MouseButton1Down:connect(function()
+ loadstring(game:HttpGet("https://pastebin.com/raw/EnPwiufb",true))()
+end)
+ 
+Admin.Name = "Funny"     
+Admin.Parent = lolwe
+Admin.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Admin.BorderSizePixel = 0
+Admin.Position = UDim2.new(0.58309859, 0, 0.455399036, 0)
+Admin.Size = UDim2.new(0, 108, 0, 31)
+Admin.Font = Enum.Font.Cartoon
+Admin.Text = "Funny"
+Admin.TextColor3 = Color3.fromRGB(0, 183, 235)
+Admin.TextSize = 20.000
+Admin.MouseButton1Down:connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Tboonsss/f/main/sd?token=GHSAT0AAAAAABRCFBYNGSMJOKQ4ERFMVMSGYPYHCEQ",true))()
+end)
+ 
+Noclip.Name = "AudioVizualizer"
+Noclip.Parent = lolwe
+Noclip.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Noclip.BorderSizePixel = 0
+Noclip.Position = UDim2.new(0.152112663, 0, 0.657276988, 0)
+Noclip.Size = UDim2.new(0, 150, 0, 31)
+Noclip.Font = Enum.Font.Cartoon
+Noclip.Text = "AudioVizualizer"
+Noclip.TextColor3 = Color3.fromRGB(0, 183, 235)
+Noclip.TextScaled = false
+Noclip.TextSize = 20.000
+Noclip.TextWrapped = true
+Noclip.MouseButton1Down:connect(function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/m02STxhz", true))()
+end)
+
+Animations.Name = "CMD X"
+Animations.Parent = lolwe
+Animations.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Animations.BorderSizePixel = 0
+Animations.Position = UDim2.new(0.58309859, 0, 0.234741777, 0)
+Animations.Size = UDim2.new(0, 108, 0, 31)
+Animations.Font = Enum.Font.Cartoon
+Animations.Text = "CMD X"
+Animations.TextColor3 = Color3.fromRGB(0, 183, 235)
+Animations.TextSize = 20.000
+Animations.MouseButton1Down:connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",true))()
+end)
+Bypass.Name = "Bypasser"
+Bypass.Parent = lolwe
+Bypass.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Bypass.BorderSizePixel = 0
+Bypass.Position = UDim2.new(0.58309859, 0, 0.657276988, 0)
+Bypass.Size = UDim2.new(0, 108, 0, 31)
+Bypass.Font = Enum.Font.Cartoon
+Bypass.Text = "Bypasser"
+Bypass.TextColor3 = Color3.fromRGB(0, 183, 235)
+Bypass.TextSize = 20.000
+Bypass.MouseButton1Down:connect(function()
+loadstring(game:HttpGet("https://the-shed.xyz/roblox/scripts/ChatBypass", true))()
+end)
+ 
+TextLabel.Parent = lolwe
+TextLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.287323952, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 30)
+TextLabel.Font = Enum.Font.Arcade
+TextLabel.Text = "WaterHub"
+TextLabel.TextColor3 = Color3.fromRGB(0, 183, 235)
+TextLabel.TextSize = 50.000
+
+LABEL.Parent = lolwe
+LABEL.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+LABEL.BackgroundTransparency = 1.000
+LABEL.BorderSizePixel = 0
+LABEL.Position = UDim2.new(0.687323952, 0.257276988, 0)
+LABEL.Size = UDim2.new(0, 200, 0, 30)
+LABEL.Font = Enum.Font.Arcade
+LABEL.Text = "Made by:Vigdom!"
+LABEL.TextColor3 = Color3.fromRGB(0, 183, 235)
+LABEL.TextSize = 15.000
+
+ 
+local s = Instance.new("Sound")
+ 
+s.Name = "Sound"
+s.SoundId = "http://www.roblox.com/asset/?id=5930519356"
+s.Volume = 2
+s.Looped = false
+s.archivable = false
+ 
+s.Parent = game.Workspace
+ 
+wait(0)
+ 
+s:play()
